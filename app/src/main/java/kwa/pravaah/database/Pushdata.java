@@ -55,7 +55,7 @@ public class Pushdata extends AsyncTask<String, Void, String> {
                 cursor.moveToFirst();
                 String id = cursor.getString(cursor.getColumnIndex(db.SHEET_ID));
 
-                 url = new URL("https://script.google.com/macros/s/AKfycbyECzKI9C68PKXE72G-PyZytMoBHQu69qWgZ_CA1J8SPdm3irw/exec");
+                 url = new URL("https://script.google.com/macros/s/AKfycbwWlckFBk9nif9KHG2J5s7-S9RkkUnoUSo-HtnGU_tql2-LA_I/exec");
                 JSONObject postDataParams = new JSONObject();
 
 

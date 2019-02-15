@@ -115,7 +115,7 @@ public class Home extends AppCompatActivity
         if(!isPhoneCallPermissionGranted){
             askPhoneCallPermission();
         }else{
-            if(!isReceiveSmsPermissionGranted){
+           if(!isReceiveSmsPermissionGranted){
                 askReceiveSmsPermission();
             }else if (!isReadSmsPermissionGranted){
                 askReadSmsPermission();

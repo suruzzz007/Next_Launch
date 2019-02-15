@@ -146,10 +146,10 @@ public class DbManager extends SQLiteOpenHelper {
         return res;
     }
 
-    public Cursor getPumpStatus(String no) {
+    public String getTimeStatus(String intent) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res = db.rawQuery("select " + PUMP + " from " + TABLE_SMS + " where " + MOBILE_NO + " = " + "'" + no + "'" , null);
-        return res;
+        Cursor res = db.rawQuery("select " + TIME_ON + " from " + TABLE_SMS + " where " + PENDING_INTENT_ON + " = " + "'" + intent + "'" , null);
+        return TIME_ON;
     }
 
     public String getPendingON(String no) {
@@ -172,6 +172,7 @@ public class DbManager extends SQLiteOpenHelper {
         Cursor res = db.rawQuery("select " + PHN_NO+ " from " + TABLE_REG + " where " + NAME_REG + " = " + "'" + nm + "'", null);
          return  res;
     }
+
     public Boolean Checknumber(String no) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor res = db.rawQuery("select *  from " + TABLE_REG + " where " + PHN_NO + " = " + "'" + no + "'", null);

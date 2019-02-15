@@ -46,7 +46,7 @@ public class AddAlarm extends AppCompatActivity
     private String intent_off = "000";
     private String time_off = "000";
     public static String  Name,phn;
-    public static String Gtime, GAlarm_on;
+    public static String Gtime, GAlarm_on, Tm;
 
     private static final int CONTACT_PICK = 1;
     TimePicker setTime;
@@ -196,7 +196,6 @@ public class AddAlarm extends AppCompatActivity
                             String time = cal.getTime().toString();
                             time = time.substring(11, 19);
 
-
                             AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 
 
@@ -243,6 +242,7 @@ public class AddAlarm extends AppCompatActivity
 
 
                             }
+
 
 
                     }
