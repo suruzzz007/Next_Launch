@@ -30,16 +30,13 @@ public class AppUtils {
 
 
 
-            Toast.makeText(context, "In apputils", Toast.LENGTH_SHORT).show();
 
 
 
             String num = "tel:" + number;
             Uri uri = Uri.parse(num);
 
-            Toast.makeText(context, uri.toString(), Toast.LENGTH_SHORT).show();
-            Toast.makeText(context, num, Toast.LENGTH_SHORT).show();
-            Intent i = new Intent(Intent.ACTION_CALL, uri);
+           Intent i = new Intent(Intent.ACTION_CALL, uri);
 
             if (android.os.Build.VERSION.SDK_INT < Build.VERSION_CODES.M
                     || ContextCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {

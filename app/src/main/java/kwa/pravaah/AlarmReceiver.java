@@ -35,7 +35,6 @@ public class AlarmReceiver extends BroadcastReceiver {
 
             Log.i(TAG, "onReceive: Making call");
             Toast.makeText(context, "ALARM", Toast.LENGTH_LONG).show();
-            Toast.makeText(context, No, Toast.LENGTH_SHORT).show();
             // AppUtils.makeCall(context,No);
 
        /* if(android.os.Build.VERSION.SDK_INT > Build.VERSION_CODES.M)
@@ -43,13 +42,11 @@ public class AlarmReceiver extends BroadcastReceiver {
         else*/
             number = No.split(",");
 
-        Toast.makeText(context, "in receiver "+ number[0], Toast.LENGTH_SHORT).show();
-            Cursor cursor=db.getPowerStatus(number[0]);
+          Cursor cursor=db.getPowerStatus(number[0]);
             if(cursor.getCount()!=0) {
                 cursor.moveToFirst();
                 power = cursor.getString(cursor.getColumnIndex(db.POWER));
                 if (power.equalsIgnoreCase(POWER)) {
-                    Toast.makeText(context, "Pump ON", Toast.LENGTH_SHORT).show();
 
                     AppUtils.dial(No, context);
 

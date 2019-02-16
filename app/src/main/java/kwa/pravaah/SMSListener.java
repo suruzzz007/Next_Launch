@@ -30,6 +30,8 @@ public class SMSListener extends BroadcastReceiver {
     public void onReceive(final Context context, Intent intent) {
 
         if (intent.getAction().equals("android.provider.Telephony.SMS_RECEIVED")) {
+            Log.i(TAG, "msg: received");
+            Toast.makeText(context, "OKKKKK", Toast.LENGTH_SHORT).show();
             Bundle bundle = intent.getExtras();
             SmsMessage[] msgs = null;
             String msg_from;
