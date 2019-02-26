@@ -31,10 +31,12 @@ public class SMSListener extends BroadcastReceiver {
 
         if (intent.getAction().equals("android.provider.Telephony.SMS_RECEIVED")) {
             Log.i(TAG, "msg: received");
+            Gson gson = new Gson();
             Toast.makeText(context, "OKKKKK", Toast.LENGTH_SHORT).show();
             Bundle bundle = intent.getExtras();
             SmsMessage[] msgs = null;
             String msg_from;
+
             if (bundle != null) {
                 //---retrieve the SMS message received---
                 try {
@@ -48,12 +50,12 @@ public class SMSListener extends BroadcastReceiver {
                         msgBody = msgBody.replace("\n", "\",\"");
                         msgBody = msgBody.replace(" ", "\"");
                         msgBody = "{\"" + msgBody + "\"}";
+                       // JSONObject msgJson = new JSONObject(msgBody);
                         JSONObject msgJson = new JSONObject(msgBody);
-                        Log.e("Incoming message", msgJson.toString());
 
-                        Gson gson = new Gson();
+
                         message message = gson.fromJson(msgBody, message.class);
-                        if (msg_from != null && msg_from.length() > 0) {
+                        if(msg_from!=null && msg_from.length()>0){
                             message.setSender(msg_from);
                         }
                         Log.e("Incoming message", msgJson.toString());
